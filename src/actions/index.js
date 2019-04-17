@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from './Types';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, UPDATE_TODO } from './Types';
 
 let nextTodoId = 0;
 
@@ -15,5 +15,10 @@ export const toggleTodo = id => ({
 
 export const deleteTodo = id => ({
   type: DELETE_TODO,
+  id
+});
+
+export const updateTodo = (id) => ({
+  type: UPDATE_TODO,
   id
 });

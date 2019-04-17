@@ -1,21 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text} 
-  </li>
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faTrash, faPen, faCheck} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+library.add(faTrash);
+library.add(faPen);
+library.add(faCheck);
+
+const Todo = ({ onClick,  todo, onDelete,  onUpdate}) => (
+  <p>
+		<input
+			style={{
+			textDecoration: todo.completed ? 'line-through' : 'none'
+			}}
+			defaultValue={todo.text}
+			onChange={onUpdate}
+    	/>
+		<button
+			onClick={() => onClick(todo.id)}
+		>
+			<FontAwesomeIcon 
+				color="black"     
+				icon="check"
+			/>
+		</button>
+		<button 
+			onClick={() => onDelete(todo.id)}
+		>
+		<FontAwesomeIcon 
+			color="black"     
+			icon="trash"
+		 />
+		</button>
+  	</p>
+  
+
 );
 
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
-}
 
 export default Todo;
