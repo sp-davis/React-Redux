@@ -1,27 +1,36 @@
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, UPDATE_TODO } from '../actions/Types';
 
-const todos = (state = [], action) => {
+const initialState = {
+	todos : []
+}
+
+const todos = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_TODO:
-			return [
-				...state,
-				{
+			return Object.assign({}, state, {
+				todos: state.todos.concat({
 					id: action.id,
 					text: action.text,
-					completed: false 
-				}
-			]
+					completed: false
+				})
+			})
 		case TOGGLE_TODO:
-			return state.map(todo =>
-				todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-			);
+			return Object.assign({}, state, {
+				todos: state.todos.map(todo =>
+					todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+				)
+			})
 		case UPDATE_TODO:
-			return state.map(todo =>{
-				console.log(state);
-				return todo.id === action.id ? { ...todo, text: action.id.target.value, } : todo
-			});
+		return Object.assign({}, state, {
+			todos: state.todos.map(todo => 
+				todo.id === action.id ? { ...todo, text: action.data.text } : todo
+			)
+		})
 		case DELETE_TODO:
-			return state.filter(( {id} ) => id !== action.id);
+		console.log(state)
+			return Object.assign({}, state, {
+				todos: state.todos.filter(( {id} ) => id !== action.id)
+			})
 		default:
 			return state;
 	}

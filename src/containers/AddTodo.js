@@ -4,16 +4,12 @@ import { addTodo } from '../actions';
 
 const AddTodo = ({ dispatch }) => {
   let input;
-
   return (
     <div>
       <form
         onSubmit={e => {
           e.preventDefault()
-          if (!input.value.trim()) {
-            return
-          }
-          dispatch(addTodo(input.value))
+          input.value && dispatch(addTodo(input.value))
           input.value = ''
         }}
       >
