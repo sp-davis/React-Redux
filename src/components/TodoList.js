@@ -1,16 +1,13 @@
 import React from 'react';
-import Todo from './Todo';
+import Todo from '../containers/Todo';
 
-const TodoList = ({toggleTodo, deleteTodo, updateTodo, state}) => { 
+const TodoList = ({state}) => { 
 	return (
 		<div>
 			{state.map(todo => (
 				<Todo
 					key={todo.id} 
 					todo={todo}
-					onClick={toggleTodo} 
-					onDelete={deleteTodo}
-					onUpdate={updateTodo}
 				/>
 			))}
 		</div>

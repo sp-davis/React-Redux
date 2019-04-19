@@ -19,9 +19,9 @@ export const toggleTodo = id => ({
 
 export const deleteTodo = id => ({
   type: DELETE_TODO,
-    data: {
-      id
-    }
+  data: {
+    id
+  }
 });
 
 export const updateTodo = (id, text) => ({

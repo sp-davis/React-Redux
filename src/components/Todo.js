@@ -3,17 +3,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(faTrash);
-library.add(faPen);
-library.add(faCheck);
+library.add(faTrash, faPen, faCheck);
 
 class Todo extends Component {
   render() {
     const {
-      onClick,
+      toggleTodo,
       todo,
-      onDelete,
-      onUpdate
+      deleteTodo,
+      updateTodo
     } = this.props;
     let newText;
     return (
@@ -21,18 +19,18 @@ class Todo extends Component {
         <input
           defaultValue={todo.text}
           ref={node => (newText = node)}
-          onChange={() => onUpdate(todo.id, newText.value)}
+          onChange={() => updateTodo(todo.id, newText.value)}
           style={{
             textDecoration: todo.completed ? 'line-through' : 'none'
           }}
         />
         <button
-          onClick={() => onClick(todo.id)}
+          onClick={() => toggleTodo(todo.id)}
         >
           <FontAwesomeIcon icon="check" color="black" />
         </button>
         <button
-          onClick={() => onDelete(todo.id)}
+          onClick={() => deleteTodo(todo.id)}
         >
           <FontAwesomeIcon icon="trash" color="black" />
         </button>
