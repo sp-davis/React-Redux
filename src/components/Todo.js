@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {faTrash, faPen, faCheck} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 library.add(faTrash);
 library.add(faPen);
@@ -10,10 +10,10 @@ library.add(faCheck);
 class Todo extends Component {
   render() {
     const {
-        onClick,
-        todo,
-        onDelete, 
-        onUpdate
+      onClick,
+      todo,
+      onDelete,
+      onUpdate
     } = this.props;
     let newText;
     return (
@@ -31,7 +31,7 @@ class Todo extends Component {
         >
           <FontAwesomeIcon icon="check" color="black" />
         </button>
-        <button 
+        <button
           onClick={() => onDelete(todo.id)}
         >
           <FontAwesomeIcon icon="trash" color="black" />
