@@ -9,27 +9,27 @@ const todos = (state = initialState, action) => {
 		case ADD_TODO:
 			return Object.assign({}, state, {
 				todos: state.todos.concat({
-					id: action.id,
-					text: action.text,
+					id: action.data.id,
+					text: action.data.text,
 					completed: false
 				})
 			})
 		case TOGGLE_TODO:
 			return Object.assign({}, state, {
 				todos: state.todos.map(todo =>
-					todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+					todo.id === action.data.id ? { ...todo, completed: !todo.completed } : todo
 				)
 			})
 		case UPDATE_TODO:
 		return Object.assign({}, state, {
 			todos: state.todos.map(todo => 
-				todo.id === action.id ? { ...todo, text: action.data.text } : todo
+				todo.id === action.data.id ? { ...todo, text: action.data.text } : todo
 			)
 		})
 		case DELETE_TODO:
 		console.log(state)
 			return Object.assign({}, state, {
-				todos: state.todos.filter(( {id} ) => id !== action.id)
+				todos: state.todos.filter(( {id} ) => id !== action.data.id)
 			})
 		default:
 			return state;
