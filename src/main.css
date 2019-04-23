@@ -1,0 +1,64 @@
+div.container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 30% 20% 20% 30%;
+  grid-template-rows: 100px 500px;
+}
+.addTodo {
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+.todoDisplay {
+  grid-column: 3 / 4;
+  grid-row: 2;
+}
+h1.projectTitle {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+.butn {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+  font-weight: 300;
+  border: 1px solid transparent;
+  padding: .75rem 1.25rem;
+  font-size: .875rem;
+  line-height: 1.1;
+  border-radius: .375rem;
+  transition: all 250ms cubic-bezier(.27,.01,.38,1.06);
+}
+.butn:hover {
+  color: #fff;
+  background-color: #16181b;
+  border-color: #212529;
+  box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba(33,37,41,.25);
+}
+.inputControl {
+  margin-right: 1em;
+  padding: .664rem 1rem;
+  font-size: .95rem;
+  line-height: 1.125rem;
+  color: #495057;
+  border: 1px solid #becad6;
+  font-weight: 300;
+  border-radius: .375rem;
+  transition: border-color 250ms cubic-bezier(.27,.01,.38,1.06),box-shadow 250ms cubic-bezier(.27,.01,.38,1.06);
+}
+.butnListed {
+  background-color: #fafafa;
+  border-color: #fafafa;
+  font-weight: 300;
+  border: 1px solid black;
+  padding: .75rem 1.25rem;
+  font-size: .875rem;
+  line-height: 1.1;
+  border-radius: .375rem;
+  transition: all 250ms cubic-bezier(.27,.01,.38,1.06);
+}
+.butnListed:hover {
+  background-color: #fafafa;
+  border-color: #fafafa;
+  border: 1px solid black;
+  box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba(33,37,41,.25);
+}

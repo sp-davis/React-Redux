@@ -3,7 +3,7 @@ import Todo from '../containers/Todo';
 
 const TodoList = ({state}) => { 
 	return (
-		<div>
+		<div className="todoDisplay">
 			{state.map(todo => (
 				<Todo
 					key={todo.id} 

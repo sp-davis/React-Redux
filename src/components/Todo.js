@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../main.css';
 
 library.add(faTrash, faPen, faCheck);
 
@@ -23,14 +24,17 @@ class Todo extends Component {
           style={{
             textDecoration: todo.completed ? 'line-through' : 'none'
           }}
+          className="inputControl"
         />
         <button
           onClick={() => toggleTodo(todo.id)}
+          className="butnListed"
         >
           <FontAwesomeIcon icon="check" color="black" />
         </button>
         <button
           onClick={() => deleteTodo(todo.id)}
+          className="butnListed"
         >
           <FontAwesomeIcon icon="trash" color="black" />
         </button>
